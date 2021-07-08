@@ -1,21 +1,21 @@
 import { createElement, render } from "./Didact";
 
-const generateDeepElement = (depth) => {
-  depth = depth - 1;
-  
-  if(depth < 1) {
-    return createElement("p", null, 'HELLO!!!!!')
-  } else {
-    return createElement("div", null, generateDeepElement(depth))
-  }
-}
-
-const element = createElement(
-  "div",
-  { id: "foo" },
-  createElement("h1", null, "hello"),
-  createElement("p", null, createElement("b", null, "world")),
-  generateDeepElement(10)
+/** @jsxRuntime classic */
+/** @jsx createElement */
+const element = (
+  <div id="foo">
+    <h1>Hello</h1>
+    <h2>World</h2>
+    <div>
+      <p>aaaaa</p>
+      <p>bbbbb</p>
+      <ul>
+        <li>list 1</li>
+        <li>list 2</li>
+        <li>list 3</li>
+      </ul>
+    </div>
+  </div>
 )
 
 const container = document.getElementById("root");
