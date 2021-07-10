@@ -1,21 +1,20 @@
 import { createElement, render } from "./Didact";
 
+/** @jsxRuntime classic */
+/** @jsx createElement */
+const App = props => (
+  <div>
+    <h1>Hi {props.name}</h1>
+    <ul>
+      <li>aaa</li>
+      <li>bbb</li>
+      <li>ccc</li>
+    </ul>
+  </div>
+)
+
+const element = <App name="foo" />
+
 const container = document.getElementById("root")
 
-const updateValue = e => {
-  rerender(e.target.value)
-}
-
-const rerender = value => {
-  /** @jsxRuntime classic */
-  /** @jsx createElement */
-  const element = (
-    <div>
-      <input onInput={updateValue} value={value} />
-      <h2>Hello {value}</h2>
-    </div>
-  )
-  render(element, container)
-}
-
-rerender("World")
+render(element, container)
