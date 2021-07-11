@@ -1,17 +1,16 @@
-import { createElement, render } from "./Didact";
+import { createElement, render, useState } from "./Didact";
 
 /** @jsxRuntime classic */
 /** @jsx createElement */
-const App = props => (
-  <div>
-    <h1>Hi {props.name}</h1>
-    <ul>
-      <li>aaa</li>
-      <li>bbb</li>
-      <li>ccc</li>
-    </ul>
-  </div>
-)
+const App = () => {
+  const [count, setCount] = useState(1)
+
+  return (
+    <h1 onClick={() => setCount(count => count + 1)}>
+      Count: {count}
+    </h1>
+  )
+}
 
 const element = <App name="foo" />
 
